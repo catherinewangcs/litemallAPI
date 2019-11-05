@@ -55,7 +55,7 @@ public class CommentController {
 
     @ApiOperation(value = "通过商品专题id获取商品评论",httpMethod = "GET")
     @GetMapping(value = "subject/{subjectId}/comment")
-    public List<JSONObject> getCommentBysubject(@PathVariable(value = "subjectId")Long subjectId){
+    public List<JSONObject> getCommentBySubject(@PathVariable(value = "subjectId")Long subjectId){
         List<JSONObject> objects=new ArrayList<>();
         return objects;
     }

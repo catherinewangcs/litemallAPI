@@ -32,7 +32,7 @@ public class GoodController {
     }
 
     @ApiOperation(value = "更改商品信息",httpMethod = "PUT")
-    @PutMapping(value = "good/{goodId}")
+    @PutMapping(value = "good")
     public JSONObject updateGood(@RequestBody JSONObject good){
         JSONObject object=new JSONObject();
         return object;

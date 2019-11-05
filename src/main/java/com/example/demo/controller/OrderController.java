@@ -39,6 +39,13 @@ public class OrderController {
         return objects;
     }
 
+    @ApiOperation(value = "用户查看某种类的order信息",httpMethod = "GET")
+    @GetMapping(value = "user/{userId}/order/type/{orderType}")
+    public List<JSONObject> getUserOrderByType(@PathVariable(value = "userId")Long userId,@PathVariable(value = "orderType")Long orderType){
+        List<JSONObject> objects=new ArrayList<>();
+        return objects;
+    }
+
     @ApiOperation(value = "通过用户id获取订单下的商品信息",httpMethod = "GET")
     @GetMapping(value = "user/{userId}/order/{orderId}/orderItem/{orderItem}")
     public JSONObject getOrderItem(@PathVariable (value = "userId")Long userId,@PathVariable(value = "orderId") Long orderId,@PathVariable(value = "orderItem") Integer orderItem){
