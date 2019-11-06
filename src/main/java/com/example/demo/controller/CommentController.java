@@ -12,8 +12,8 @@ import java.util.List;
 @Api(tags = "CommentController")
 public class CommentController {
     @ApiOperation(value = "新建评论",httpMethod = "POST")
-    @PostMapping(value = "comment")
-    public JSONObject insertComment(@RequestBody JSONObject comment){
+    @PostMapping(value = "user/{userId}/comment")
+    public JSONObject insertComment(@PathVariable(value = "userId")Long userId,@RequestBody JSONObject comment){
         JSONObject object=new JSONObject();
         return object;
     }
@@ -65,5 +65,12 @@ public class CommentController {
     public JSONObject getCommentByGoodStar(@PathVariable(value = "goodId")Long goodId,@PathVariable(value = "star")Long star){
         JSONObject object=new JSONObject();
         return object;
+    }
+
+    @ApiOperation(value = "查看不同状态的评论",httpMethod = "GET")
+    @GetMapping(value = "comment/{commentState}")
+    public List<JSONObject> getCommentByState(@PathVariable(value = "commentState")Long commentState){
+        List<JSONObject> objects=new ArrayList<>();
+        return objects;
     }
 }
