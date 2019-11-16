@@ -20,7 +20,7 @@ public class CommonController {
     }
 
     @ApiOperation(value = "通过商品名称获取信息",httpMethod = "GET")
-    @GetMapping(value = "/goods/name")
+    @GetMapping(value = "/goods/search")
     public JSONObject getGoodsByName(@RequestParam(value = "name")Long goodName){
         JSONObject object=new JSONObject();
         return object;
@@ -76,7 +76,7 @@ public class CommonController {
     }
 
     @ApiOperation(value = "通过团购商品名称获取该商品上的团购规则",httpMethod = "GET")
-    @GetMapping(value = "/goods/name/groupon-rules")
+    @GetMapping(value = "/goods/search/groupon-rules")
     public JSONObject getGrouponRulesByGoodName(@RequestParam(value = "name")String goodName){
         JSONObject object=new JSONObject();
         return object;
@@ -90,7 +90,7 @@ public class CommonController {
     }
 
     @ApiOperation(value = "通过名称查看特定预售商品",httpMethod = "GET")
-    @GetMapping(value = "/presale-goods/name")
+    @GetMapping(value = "/presale-goods/search")
     public JSONObject getPresaleGoodsByName(@RequestParam(value = "name") String goodName){
         JSONObject object=new JSONObject();
         return object;
@@ -104,7 +104,7 @@ public class CommonController {
     }
 
     @ApiOperation(value = "通过商品名称查看商品分享规则",httpMethod = "GET")
-    @GetMapping(value = "/share-rules/name")
+    @GetMapping(value = "/share-rules/search")
     public JSONObject getShareRulesByName(@RequestParam(value = "name") String goodName){
         JSONObject object=new JSONObject();
         return object;

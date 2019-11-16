@@ -20,7 +20,7 @@ public class AdminController {
     }
 
     @ApiOperation(value = "通过userPhone获取用户地址信息",httpMethod = "GET")
-    @GetMapping(value = "/addresses/phone")
+    @GetMapping(value = "/addresses/search")
     public List<JSONObject> getAddressByPhone(@RequestParam(value = "phone")String userPhone){
         List<JSONObject> objects=new ArrayList<>();
         return objects;
@@ -40,16 +40,9 @@ public class AdminController {
         return object;
     }
 
-    @ApiOperation(value = "通过用户name获取用户信息",httpMethod = "GET")
-    @GetMapping(value = "/users/name")
-    public JSONObject getUserName(@RequestParam(value = "name")Long userName){
-        JSONObject object=new JSONObject();
-        return object;
-    }
-
-    @ApiOperation(value = "通过用户phone获取用户信息",httpMethod = "GET")
-    @GetMapping(value = "/users/phone")
-    public JSONObject getUserPhone(@RequestParam(value = "phone")Long userPhone){
+    @ApiOperation(value = "通过用户name或者phone获取用户信息",httpMethod = "GET")
+    @GetMapping(value = "/users/search")
+    public JSONObject getUserName(@RequestParam(value = "name")String userName,@RequestParam(value = "phone")String userPhone){
         JSONObject object=new JSONObject();
         return object;
     }
@@ -61,7 +54,7 @@ public class AdminController {
         return object;
     }
 
-    @ApiOperation(value = "删除某用户",httpMethod = "DELETE")
+    @ApiOperation(value = "禁用某用户",httpMethod = "DELETE")
     @DeleteMapping(value = "/users/{id}")
     public boolean deleteUser(@PathVariable(value = "id")Long userId){
         return true;
@@ -95,19 +88,19 @@ public class AdminController {
         return object;
     }
 
-    @ApiOperation(value = "删除品牌",httpMethod = "DELETE")
+    @ApiOperation(value = "禁用品牌",httpMethod = "DELETE")
     @DeleteMapping(value = "/brands/{id}")
     public boolean deleteBrand(@PathVariable (value = "id")Long brandId){
         return true;
     }
 
-    @ApiOperation(value = "删除专题",httpMethod = "DELETE")
+    @ApiOperation(value = "禁用专题",httpMethod = "DELETE")
     @DeleteMapping(value = "/subjects/{id}")
     public boolean deleteSubject(@PathVariable (value = "id")Long subjectId){
         return true;
     }
 
-    @ApiOperation(value = "删除目录",httpMethod = "DELETE")
+    @ApiOperation(value = "禁用目录",httpMethod = "DELETE")
     @DeleteMapping(value = "/categories/{id}")
     public boolean deleteCategory(@PathVariable (value = "id")Long categoryId){
         return true;
@@ -135,19 +128,19 @@ public class AdminController {
     }
 
     @ApiOperation(value = "查看某用户搜索历史",httpMethod = "GET")
-    @GetMapping(value = "/users/histories/{id}")
+    @GetMapping(value = "/users/{id}/histories")
     public List<JSONObject> listUserHistory(@PathVariable(value = "id") Long userId){
         return new ArrayList<>();
     }
 
     @ApiOperation(value = "查看某用户浏览足迹",httpMethod = "GET")
-    @GetMapping(value = "/users/footprints/{id}")
+    @GetMapping(value = "/users/{id}/footprints")
     public List<JSONObject> listUserFootprint(@PathVariable(value = "id")Long userId){
         return new ArrayList<>();
     }
 
     @ApiOperation(value = "查看某用户收藏夹",httpMethod = "GET")
-    @GetMapping(value = "/users/favorites/{id}")
+    @GetMapping(value = "/users/{id}/favorites")
     public List<JSONObject> listUserFavorites(@PathVariable(value = "id")Long userId){
         return new ArrayList<>();
     }
@@ -186,7 +179,7 @@ public class AdminController {
         return object;
     }
 
-    @ApiOperation(value = "删除某商品",httpMethod = "DELETE")
+    @ApiOperation(value = "禁用某商品",httpMethod = "DELETE")
     @DeleteMapping(value = "/goods/{id}")
     public boolean deleteGood(@PathVariable(value = "id")Long goodId){
         return true;
@@ -213,7 +206,7 @@ public class AdminController {
         return object;
     }
 
-    @ApiOperation(value = "删除一种优惠券",httpMethod = "DELETE")
+    @ApiOperation(value = "禁用一种优惠券",httpMethod = "DELETE")
     @DeleteMapping(value = "/coupon-rules/{id}")
     public boolean deleteCoupon(@PathVariable(value = "id")Long couponRulesId){
         return true;
@@ -247,14 +240,14 @@ public class AdminController {
         return object;
     }
 
-    @ApiOperation(value = "删除一个团购规则",httpMethod = "DELETE")
+    @ApiOperation(value = "禁用一个团购规则",httpMethod = "DELETE")
     @DeleteMapping(value = "/groupon-rules/{id}")
     public boolean deleteGrouponRules(@PathVariable(value = "id")Long grouponRulesId){
         return true;
     }
 
     @ApiOperation(value = "查找某状态的order",httpMethod = "GET")
-    @GetMapping(value = "/admin/orders/status")
+    @GetMapping(value = "/admin/orders/search")
     public List<JSONObject> getUserOrderByStatus(@RequestParam(value = "status")String orderStatus){
         List<JSONObject> objects=new ArrayList<>();
         return objects;
@@ -274,27 +267,27 @@ public class AdminController {
         return object;
     }
 
-    @ApiOperation(value = "删除一个预售商品",httpMethod = "DELETE")
+    @ApiOperation(value = "禁用一个预售商品",httpMethod = "DELETE")
     @DeleteMapping(value = "/presale-goods/{id}")
     public boolean deletePresaleGoods(@PathVariable(value = "id")Long presaleGoodsId){
         return true;
     }
 
-    @ApiOperation(value = "新建分享规则", httpMethod = "POST")
+    @ApiOperation(value = "新建一个分享规则", httpMethod = "POST")
     @PostMapping(value = "/share-rules")
     public JSONObject insertShareRules(@RequestBody JSONObject shareRules) {
         JSONObject object = new JSONObject();
         return object;
     }
 
-    @ApiOperation(value = "修改分享规则",httpMethod = "PUT")
+    @ApiOperation(value = "修改一个分享规则",httpMethod = "PUT")
     @PutMapping(value = "/share-rules")
     public JSONObject updateShareRules(@RequestBody JSONObject shareRules){
         JSONObject object=new JSONObject();
         return object;
     }
 
-    @ApiOperation(value = "删除分享规则",httpMethod = "DELETE")
+    @ApiOperation(value = "禁用一个分享规则",httpMethod = "DELETE")
     @DeleteMapping(value = "/share-rules/{id}")
     public boolean deleteShareRules(@PathVariable(value = "id")Long shareRulesId){
         return true;

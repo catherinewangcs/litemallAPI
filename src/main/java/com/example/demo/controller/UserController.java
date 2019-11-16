@@ -148,7 +148,7 @@ public class UserController {
     }
 
     @ApiOperation(value = "用户查看某状态(已支付未支付)的order信息",httpMethod = "GET")
-    @GetMapping(value = "/orders/status")
+    @GetMapping(value = "/orders/search")
     public List<JSONObject> getUserOrderByStatus(@RequestParam(value = "status")String orderStatus){
         List<JSONObject> objects=new ArrayList<>();
         return objects;
