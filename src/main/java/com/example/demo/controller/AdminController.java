@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @RestController
-@Api(tags = "UserController")
+@Api(tags = "AdminController")
 public class AdminController {
     @ApiOperation(value = "通过用户id获取某用户地址信息",httpMethod = "GET")
     @GetMapping(value = "/addresses/{id}")

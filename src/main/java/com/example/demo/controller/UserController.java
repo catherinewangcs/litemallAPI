@@ -1,12 +1,14 @@
 package com.example.demo.controller;
 
 import com.alibaba.fastjson.JSONObject;
+import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
-
+@RestController
+@Api(value = "UserController")
 public class UserController {
     @ApiOperation(value = "获取个人所有地址", httpMethod = "GET")
     @GetMapping(value = "/addresses")
