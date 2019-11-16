@@ -109,4 +109,11 @@ public class CommonController {
         JSONObject object=new JSONObject();
         return object;
     }
+
+    @ApiOperation(value = "通过id获取一种优惠券信息",httpMethod = "GET")
+    @GetMapping(value = "/coupon-rules/{id}")
+    public JSONObject getCouponRules(@PathVariable(value = "id")Long couponRulesId){
+        JSONObject object=new JSONObject();
+        return object;
+    }
 }

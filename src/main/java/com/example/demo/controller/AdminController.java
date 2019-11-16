@@ -27,7 +27,7 @@ public class AdminController {
     }
 
     @ApiOperation(value = "管理员登陆",httpMethod = "POST")
-    @PostMapping(value = "/login")
+    @PostMapping(value = "/admin/login")
     public JSONObject getUserIdPassword(@RequestParam(value = "adminId")Long adminId, @RequestParam(value = "password")Long password){
         JSONObject object=new JSONObject();
         return object;
@@ -174,7 +174,7 @@ public class AdminController {
     }
 
     @ApiOperation(value = "删除评论",httpMethod = "DELETE")
-    @DeleteMapping(value = "/comments/{id}")
+    @DeleteMapping(value = "/admin/comments/{id}")
     public boolean deleteComment(@PathVariable (value = "id")Long commentId){
         return true;
     }
@@ -202,20 +202,6 @@ public class AdminController {
     @ApiOperation(value = "通过orderId获取订单信息",httpMethod = "GET")
     @GetMapping(value = "/orders/{id}")
     public JSONObject getOrderId(@PathVariable(value = "id")Long orderId){
-        JSONObject object=new JSONObject();
-        return object;
-    }
-
-    @ApiOperation(value = "获取所有优惠券",httpMethod = "GET")
-    @GetMapping(value = "/coupon-rules")
-    public List<JSONObject> getCouponRulesAll(){
-        List<JSONObject> objects=new ArrayList<>();
-        return objects;
-    }
-
-    @ApiOperation(value = "通过id获取一种优惠券信息",httpMethod = "GET")
-    @GetMapping(value = "/coupon-rules/{id}")
-    public JSONObject getCouponRules(@PathVariable(value = "id")Long couponRulesId){
         JSONObject object=new JSONObject();
         return object;
     }
@@ -268,7 +254,7 @@ public class AdminController {
     }
 
     @ApiOperation(value = "查找某状态的order",httpMethod = "GET")
-    @GetMapping(value = "/orders/status")
+    @GetMapping(value = "/admin/orders/status")
     public List<JSONObject> getUserOrderByStatus(@RequestParam(value = "status")String orderStatus){
         List<JSONObject> objects=new ArrayList<>();
         return objects;
