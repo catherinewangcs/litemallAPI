@@ -5,11 +5,14 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @RestController
 @Api(tags = "GoodsController")
 public class GoodsController {
     @ApiOperation(value = "管理员更改品牌信息",httpMethod = "PUT")
-    @PutMapping(value = "/admin/brands")
+    @PutMapping(value = "/brands")
     public JSONObject updateBrand(@RequestBody JSONObject brand){
         JSONObject object=new JSONObject();
         return object;
@@ -22,6 +25,13 @@ public class GoodsController {
         return object;
     }
 
+    @ApiOperation(value = "管理员更改专题信息",httpMethod = "PUT")
+    @PutMapping(value = "/topics")
+    public JSONObject updateTopic(@RequestBody JSONObject topic){
+        JSONObject object=new JSONObject();
+        return object;
+    }
+
     @ApiOperation(value = "管理员禁用品牌",httpMethod = "DELETE")
     @DeleteMapping(value = "/brands/{id}")
     public boolean deleteBrand(@PathVariable(value = "id")Long brandId){
@@ -29,8 +39,8 @@ public class GoodsController {
     }
 
     @ApiOperation(value = "管理员禁用专题",httpMethod = "DELETE")
-    @DeleteMapping(value = "/admin/subjects/{id}")
-    public boolean deleteSubject(@PathVariable (value = "id")Long subjectId){
+    @DeleteMapping(value = "/admin/topics/{id}")
+    public boolean deleteTopic(@PathVariable (value = "id")Long topicId){
         return true;
     }
 
@@ -50,6 +60,13 @@ public class GoodsController {
     @ApiOperation(value = "管理员创建新目录",httpMethod = "POST")
     @PostMapping(value="/categories")
     public JSONObject insertCategory(@RequestBody JSONObject category){
+        JSONObject object=new JSONObject();
+        return object;
+    }
+
+    @ApiOperation(value = "管理员创建新专题",httpMethod = "POST")
+    @PostMapping(value="/topics")
+    public JSONObject insertTopic(@RequestBody JSONObject topic){
         JSONObject object=new JSONObject();
         return object;
     }
@@ -110,23 +127,30 @@ public class GoodsController {
 
     @ApiOperation(value = "查看某品牌下商品",httpMethod = "GET")
     @GetMapping(value = "/brands/{id}/goods")
-    public JSONObject getBrand(@PathVariable(value = "id")Long brandId){
-        JSONObject object=new JSONObject();
-        return object;
-    }
-
-    @ApiOperation(value = "查看某专题下商品",httpMethod = "GET")
-    @GetMapping(value = "/subject/{id}/goods")
-    public JSONObject getSubject(@PathVariable(value = "id")Long subjectId){
-        JSONObject object=new JSONObject();
-        return object;
+    public List<JSONObject> getBrand(@PathVariable(value = "id")Long brandId){
+        List<JSONObject> objects=new ArrayList<>();
+        return objects;
     }
 
     @ApiOperation(value = "查看某目录下商品",httpMethod = "GET")
     @GetMapping(value = "/category/{id}/goods")
-    public JSONObject getCategory(@PathVariable(value = "id")Long categoryId){
-        JSONObject object=new JSONObject();
-        return object;
+    public List<JSONObject> getCategory(@PathVariable(value = "id")Long categoryId){
+        List<JSONObject> objects=new ArrayList<>();
+        return objects;
+    }
+
+    @ApiOperation(value = "查看某目录下子目录",httpMethod = "GET")
+    @GetMapping(value = "/category/{id}/childs")
+    public List<JSONObject> getCategoryChilds(@PathVariable(value = "id")Long categoryId){
+        List<JSONObject> objects=new ArrayList<>();
+        return objects;
+    }
+
+    @ApiOperation(value = "查看某专题下商品",httpMethod = "GET")
+    @GetMapping(value = "/topic/{id}/goods")
+    public List<JSONObject> getTopic(@PathVariable(value = "id")Long topicId){
+        List<JSONObject> objects=new ArrayList<>();
+        return objects;
     }
 
     @ApiOperation(value = "通过商品id查看特定预售商品",httpMethod = "GET")
@@ -142,4 +166,12 @@ public class GoodsController {
         JSONObject object=new JSONObject();
         return object;
     }
+
+    @ApiOperation(value = "查看某商品下所有产品",httpMethod = "GET")
+    @GetMapping(value = "/goods/{id}/products")
+    public JSONObject getGoodProducts(@PathVariable(value = "id")Long goodId){
+        JSONObject object=new JSONObject();
+        return object;
+    }
+
 }

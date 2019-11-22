@@ -29,12 +29,12 @@ public class SwaggerConfig {
     }
 
     private ApiInfo apiInfo() {
-        Contact contact = new Contact("OOAD桃园结义", "www.my.com", "my@my.com");
+        Contact contact = new Contact("1-7小组：OOAD桃园结义", "www.my.com", "my@my.com");
         return new ApiInfoBuilder()
-                .title("Restful API设计")
+                .title("Restful API设计（本次作业11个模块，1-7小组选择goods、comment、couponAndGroupon三个模块完善API）")
                 .description("litemall controller层API更改为restful风格")
                 .contact(contact)   // 联系方式
-                .version("1.1.0")  // 版本
+                .version("2.1.0")  // 版本
                 .build();
     }
 
