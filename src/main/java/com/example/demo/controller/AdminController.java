@@ -233,7 +233,7 @@ public class AdminController {
         return object;
     }
 
-    @ApiOperation(value = "修改某个团购规则内容",httpMethod = "PUT")
+    @ApiOperation(value = "修改某团购规则内容",httpMethod = "PUT")
     @PutMapping(value = "/groupon-rules")
     public JSONObject updateGrouponRules(@RequestBody JSONObject grouponRules){
         JSONObject object=new JSONObject();
