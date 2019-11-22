@@ -1,6 +1,7 @@
 package com.example.demo.controller;
 
 import com.alibaba.fastjson.JSONObject;
+import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.web.bind.annotation.*;
 
@@ -8,6 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @RestController
+@Api(tags = "CartController")
 public class CartController {
     @ApiOperation(value = "查看用户个人购物车", httpMethod = "GET")
     @GetMapping(value = "/cart-items")

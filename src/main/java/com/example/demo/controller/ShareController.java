@@ -1,10 +1,12 @@
 package com.example.demo.controller;
 
 import com.alibaba.fastjson.JSONObject;
+import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
+@Api(tags = "ShareController")
 public class ShareController {
     @ApiOperation(value = "管理员新建一个分享规则", httpMethod = "POST")
     @PostMapping(value = "/share-rules")

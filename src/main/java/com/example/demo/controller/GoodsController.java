@@ -1,9 +1,12 @@
 package com.example.demo.controller;
 
 import com.alibaba.fastjson.JSONObject;
+import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.web.bind.annotation.*;
 
+@RestController
+@Api(tags = "GoodsController")
 public class GoodsController {
     @ApiOperation(value = "管理员更改品牌信息",httpMethod = "PUT")
     @PutMapping(value = "/admin/brands")
