@@ -11,14 +11,14 @@ import java.util.List;
 @RestController
 @Api(tags = "CommentController")
 public class CommentController {
-    @ApiOperation(value = "用户新建评论", httpMethod = "POST")
+    @ApiOperation(value = "用户新建一条评论", httpMethod = "POST")
     @PostMapping(value = "/comments")
     public JSONObject insertComment(@RequestBody JSONObject comment) {
         JSONObject object = new JSONObject();
         return object;
     }
 
-    @ApiOperation(value = "用户删除评论", httpMethod = "DELETE")
+    @ApiOperation(value = "用户删除自己某条评论", httpMethod = "DELETE")
     @DeleteMapping(value = "/comments/{id}")
     public boolean deleteComment(@PathVariable(value = "id") Long commentId) {
         return true;
@@ -38,7 +38,7 @@ public class CommentController {
         return objects;
     }
 
-    @ApiOperation(value = "管理员审核评论",httpMethod = "PUT")
+    @ApiOperation(value = "管理员审核某条评论",httpMethod = "PUT")
     @PutMapping(value = "/comments/{id}")
     public JSONObject getCommentByState(@PathVariable(value = "id")Long commentId){
         JSONObject object=new JSONObject();
@@ -66,7 +66,7 @@ public class CommentController {
     }
 
     @ApiOperation(value = "查看某商品不同评分的商品评论",httpMethod = "GET")
-    @GetMapping(value = "/goods/{id}/comments/star/{star}")
+    @GetMapping(value = "/goods/{id}/star/{star}/comments")
     public List<JSONObject> getCommentByGoodStar(@PathVariable(value = "id")Long goodId,@PathVariable(value = "star")Long star){
         List<JSONObject> objects=new ArrayList<>();
         return objects;

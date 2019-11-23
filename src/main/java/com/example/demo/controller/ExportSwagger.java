@@ -21,7 +21,7 @@ public class ExportSwagger {
                 .withoutInlineSchema()
                 .build();
 
-        Swagger2MarkupConverter.from(new URL("http://10.30.27.192:8011/v2/api-docs"))
+        Swagger2MarkupConverter.from(new URL("http://10.30.27.192:8012/v2/api-docs"))
                 .withConfig(config)
                 .build()
                 .toFolder(Paths.get("/Library/lizhilong/zhanrong/aboutproject"));

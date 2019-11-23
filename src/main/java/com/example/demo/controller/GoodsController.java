@@ -71,7 +71,7 @@ public class GoodsController {
         return object;
     }
 
-    @ApiOperation(value = "管理员新建商品",httpMethod = "POST")
+    @ApiOperation(value = "管理员新建某商品",httpMethod = "POST")
     @PostMapping(value = "/goods")
     public JSONObject insertGood(@RequestBody JSONObject good){
         JSONObject object=new JSONObject();
@@ -111,14 +111,14 @@ public class GoodsController {
         return true;
     }
 
-    @ApiOperation(value = "通过商品id获取信息",httpMethod = "GET")
+    @ApiOperation(value = "通过商品id获取商品信息",httpMethod = "GET")
     @GetMapping(value = "/goods/{id}")
     public JSONObject getGoods(@PathVariable(value = "id")Long goodId){
         JSONObject object=new JSONObject();
         return object;
     }
 
-    @ApiOperation(value = "通过商品名称获取信息",httpMethod = "GET")
+    @ApiOperation(value = "通过商品名称获取商品信息",httpMethod = "GET")
     @GetMapping(value = "/goods/search")
     public JSONObject getGoodsByName(@RequestParam(value = "name")Long goodName){
         JSONObject object=new JSONObject();
@@ -133,21 +133,21 @@ public class GoodsController {
     }
 
     @ApiOperation(value = "查看某目录下商品",httpMethod = "GET")
-    @GetMapping(value = "/category/{id}/goods")
+    @GetMapping(value = "/categories/{id}/goods")
     public List<JSONObject> getCategory(@PathVariable(value = "id")Long categoryId){
         List<JSONObject> objects=new ArrayList<>();
         return objects;
     }
 
     @ApiOperation(value = "查看某目录下子目录",httpMethod = "GET")
-    @GetMapping(value = "/category/{id}/childs")
+    @GetMapping(value = "/categories/{id}/childs")
     public List<JSONObject> getCategoryChilds(@PathVariable(value = "id")Long categoryId){
         List<JSONObject> objects=new ArrayList<>();
         return objects;
     }
 
     @ApiOperation(value = "查看某专题下商品",httpMethod = "GET")
-    @GetMapping(value = "/topic/{id}/goods")
+    @GetMapping(value = "/topics/{id}/goods")
     public List<JSONObject> getTopic(@PathVariable(value = "id")Long topicId){
         List<JSONObject> objects=new ArrayList<>();
         return objects;
@@ -174,4 +174,44 @@ public class GoodsController {
         return object;
     }
 
+    @ApiOperation(value = "管理员新建某商品下的产品",httpMethod = "POST")
+    @PostMapping(value = "/goods/{id}/products")
+    public JSONObject insertGoodProduct(@PathVariable(value = "id")Long goodId,@RequestBody JSONObject product){
+        JSONObject object=new JSONObject();
+        return object;
+    }
+
+    @ApiOperation(value = "管理员禁用某商品下的某产品",httpMethod = "DELETE")
+    @DeleteMapping(value = "/goods/{id}/products/{pid}")
+    public boolean deleteGoodProducts(@PathVariable(value = "id")Long goodId,@PathVariable(value = "pid")Long productId){
+        return true;
+    }
+
+    @ApiOperation(value = "管理员更改某商品下某产品信息",httpMethod = "PUT")
+    @PutMapping(value = "/goods/{id}/products")
+    public JSONObject updateGoodProducts(@PathVariable(value = "id")Long goodId,@RequestBody JSONObject product){
+        JSONObject object=new JSONObject();
+        return object;
+    }
+
+    @ApiOperation(value = "从某商品查看其品牌",httpMethod = "GET")
+    @GetMapping(value = "/goods/{id}/brands")
+    public JSONObject getGoodBrands(@PathVariable(value = "id")Long goodId){
+        JSONObject object=new JSONObject();
+        return object;
+    }
+
+    @ApiOperation(value = "查看上新商品",httpMethod = "GET")
+    @GetMapping(value = "/goods/new")
+    public List<JSONObject> getNewGoods(){
+        List<JSONObject> objects=new ArrayList<>();
+        return objects;
+    }
+
+    @ApiOperation(value = "查看人气商品",httpMethod = "GET")
+    @GetMapping(value = "/goods/hot")
+    public List<JSONObject> getHotGoods(){
+        List<JSONObject> objects=new ArrayList<>();
+        return objects;
+    }
 }

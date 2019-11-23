@@ -25,7 +25,7 @@ public class CouponAndGrouponController {
         return objects;
     }
 
-    @ApiOperation(value = "领取一张优惠券", httpMethod = "POST")
+    @ApiOperation(value = "用户领取一张优惠券", httpMethod = "POST")
     @PostMapping(value = "/coupons")
     public JSONObject insertCoupons(@RequestBody JSONObject coupon) {
         JSONObject object = new JSONObject();
