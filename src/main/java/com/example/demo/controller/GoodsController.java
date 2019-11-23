@@ -39,13 +39,13 @@ public class GoodsController {
     }
 
     @ApiOperation(value = "管理员禁用专题",httpMethod = "DELETE")
-    @DeleteMapping(value = "/admin/topics/{id}")
+    @DeleteMapping(value = "/topics/{id}")
     public boolean deleteTopic(@PathVariable (value = "id")Long topicId){
         return true;
     }
 
     @ApiOperation(value = "管理员禁用目录",httpMethod = "DELETE")
-    @DeleteMapping(value = "/admin/categories/{id}")
+    @DeleteMapping(value = "/categories/{id}")
     public boolean deleteCategory(@PathVariable (value = "id")Long categoryId){
         return true;
     }
@@ -199,19 +199,5 @@ public class GoodsController {
     public JSONObject getGoodBrands(@PathVariable(value = "id")Long goodId){
         JSONObject object=new JSONObject();
         return object;
-    }
-
-    @ApiOperation(value = "查看上新商品",httpMethod = "GET")
-    @GetMapping(value = "/goods/new")
-    public List<JSONObject> getNewGoods(){
-        List<JSONObject> objects=new ArrayList<>();
-        return objects;
-    }
-
-    @ApiOperation(value = "查看人气商品",httpMethod = "GET")
-    @GetMapping(value = "/goods/hot")
-    public List<JSONObject> getHotGoods(){
-        List<JSONObject> objects=new ArrayList<>();
-        return objects;
     }
 }
