@@ -84,32 +84,46 @@ public class GoodsController {
         return true;
     }
 
-    @ApiOperation(value = "管理员更改商品信息(包括上下架状态)",httpMethod = "PUT")
+    @ApiOperation(value = "管理员更改商品信息",httpMethod = "PUT")
     @PutMapping(value = "/goods")
     public JSONObject updateGood(@RequestBody JSONObject good){
         JSONObject object=new JSONObject();
         return object;
     }
 
-    @ApiOperation(value = "管理员新建预售商品", httpMethod = "POST")
-    @PostMapping(value = "/presale-goods")
-    public JSONObject insertPresaleGoods(@RequestBody JSONObject presaleGoods) {
-        JSONObject object = new JSONObject();
-        return object;
-    }
-
-    @ApiOperation(value = "管理员修改某个预售商品",httpMethod = "PUT")
-    @PutMapping(value = "/presale-goods")
-    public JSONObject updatePresaleGoods(@RequestBody JSONObject presaleGoods){
+    @ApiOperation(value = "管理员上架商品",httpMethod = "PUT")
+    @PutMapping(value = "/goods/up")
+    public JSONObject updateGoodUp(@RequestBody JSONObject good){
         JSONObject object=new JSONObject();
         return object;
     }
 
-    @ApiOperation(value = "管理员禁用一个预售商品",httpMethod = "DELETE")
-    @DeleteMapping(value = "/presale-goods/{id}")
-    public boolean deletePresaleGoods(@PathVariable(value = "id")Long presaleGoodsId){
-        return true;
+    @ApiOperation(value = "管理员下架商品",httpMethod = "PUT")
+    @PutMapping(value = "/goods/down")
+    public JSONObject updateGoodDown(@RequestBody JSONObject good){
+        JSONObject object=new JSONObject();
+        return object;
     }
+
+//    @ApiOperation(value = "管理员新建预售商品", httpMethod = "POST")
+//    @PostMapping(value = "/presale-goods")
+//    public JSONObject insertPresaleGoods(@RequestBody JSONObject presaleGoods) {
+//        JSONObject object = new JSONObject();
+//        return object;
+//    }
+//
+//    @ApiOperation(value = "管理员修改某个预售商品",httpMethod = "PUT")
+//    @PutMapping(value = "/presale-goods")
+//    public JSONObject updatePresaleGoods(@RequestBody JSONObject presaleGoods){
+//        JSONObject object=new JSONObject();
+//        return object;
+//    }
+//
+//    @ApiOperation(value = "管理员禁用一个预售商品",httpMethod = "DELETE")
+//    @DeleteMapping(value = "/presale-goods/{id}")
+//    public boolean deletePresaleGoods(@PathVariable(value = "id")Long presaleGoodsId){
+//        return true;
+//    }
 
     @ApiOperation(value = "通过商品id获取商品信息",httpMethod = "GET")
     @GetMapping(value = "/goods/{id}")
@@ -132,7 +146,7 @@ public class GoodsController {
         return objects;
     }
 
-    @ApiOperation(value = "查看某目录下商品",httpMethod = "GET")
+    @ApiOperation(value = "查看某目录（子目录）下商品",httpMethod = "GET")
     @GetMapping(value = "/categories/{id}/goods")
     public List<JSONObject> getCategory(@PathVariable(value = "id")Long categoryId){
         List<JSONObject> objects=new ArrayList<>();
@@ -167,29 +181,29 @@ public class GoodsController {
         return object;
     }
 
-    @ApiOperation(value = "查看某商品下所有产品",httpMethod = "GET")
-    @GetMapping(value = "/goods/{id}/products")
-    public JSONObject getGoodProducts(@PathVariable(value = "id")Long goodId){
-        JSONObject object=new JSONObject();
-        return object;
+    @ApiOperation(value = "查看某商品下所有产品（product有goodId时）",httpMethod = "GET")
+    @GetMapping(value = "/goods/products")
+    public List<JSONObject> getGoodProducts(@RequestBody JSONObject product){
+        List<JSONObject> objects=new ArrayList<>();
+        return objects;
     }
 
     @ApiOperation(value = "管理员新建某商品下的产品",httpMethod = "POST")
-    @PostMapping(value = "/goods/{id}/products")
-    public JSONObject insertGoodProduct(@PathVariable(value = "id")Long goodId,@RequestBody JSONObject product){
+    @PostMapping(value = "/goods/products")
+    public JSONObject insertGoodProduct(@RequestBody JSONObject product){
         JSONObject object=new JSONObject();
         return object;
     }
 
     @ApiOperation(value = "管理员禁用某商品下的某产品",httpMethod = "DELETE")
-    @DeleteMapping(value = "/goods/{id}/products/{pid}")
-    public boolean deleteGoodProducts(@PathVariable(value = "id")Long goodId,@PathVariable(value = "pid")Long productId){
+    @DeleteMapping(value = "/goods/products/{id}")
+    public boolean deleteGoodProducts(@PathVariable(value = "id")Long productId){
         return true;
     }
 
     @ApiOperation(value = "管理员更改某商品下某产品信息",httpMethod = "PUT")
-    @PutMapping(value = "/goods/{id}/products")
-    public JSONObject updateGoodProducts(@PathVariable(value = "id")Long goodId,@RequestBody JSONObject product){
+    @PutMapping(value = "/goods/products")
+    public JSONObject updateGoodProducts(@RequestBody JSONObject product){
         JSONObject object=new JSONObject();
         return object;
     }
